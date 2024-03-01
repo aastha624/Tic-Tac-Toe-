@@ -17,12 +17,12 @@ export default function Player({ initialName, symbol }) {
   }
 
   let editableplayername = <span className="player-name">{playername}</span>;
-  let btncaption='Edit';
+  // let btncaption='Edit';
   if (isEditing) {
     editableplayername = (
     <input type="text" required value={playername} onChange={handlechange} />
     //show that name as a input----conditional content and A Suboptimal Way Of Upadating State
-    btncaption='save' ;
+    // btncaption='save' ;
     //another method use ternary expression .
     );
   }
@@ -33,7 +33,7 @@ export default function Player({ initialName, symbol }) {
         {editableplayername}
         <span className="player-symbol">{symbol}</span>
       </span>
-      <button onClick={handleEditClick}>{btncaption}</button>
+      <button onClick={handleEditClick}>{isEditing? 'Save':'Edit'}</button>
     </li>
   );
 }
