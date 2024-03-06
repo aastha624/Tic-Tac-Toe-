@@ -8,16 +8,17 @@ const intialGameboard = [
 
 // RENDERING MULTIDIMENTIONAL LISTING--not write code in hard code write the code in dyanamically
 
-export default function Gameboard() {
+export default function Gameboard({onselectsquare,activeplayersymbol}) {
     const[gameboard,setgameboard]=useState(intialGameboard);
 
     function handleselectsquare(rowindex,colindex){
         setgameboard((prevGameBoard)=>{
             const updateBoard=[...prevGameBoard.map(innerArray=>[...innerArray])];
             // achieving old array using map method----using this aaproach updating the state immutable way --handle function assign onclick and create new anonumus function
-updateBoard[rowindex][colindex]='X';
+updateBoard[rowindex][colindex]=activeplayersymbol;
 return updateBoard;  
         });
+        onselectsquare();
     }
     return (
     <ol id="game-board">
