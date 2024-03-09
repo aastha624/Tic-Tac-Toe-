@@ -31,9 +31,9 @@ function App() {
           <Player initialName="Player" symbol="X" isactive={activeplayer ==='X'}/>
           <Player initialName="Player" symbol="O" isactive={activeplayer ==='O'} />
         </ol>
-        <Gameboard onselectsquare={handleselectsquare} activeplayersymbol={activeplayer}/>
+        <Gameboard onselectsquare={handleselectsquare} turns={gameTurns}/>
       </div>
-      <log />
+      <Log />
     </main>
   );
 }

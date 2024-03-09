@@ -5,3 +5,4 @@ export default function Log() {
   
     </ol>
   }
+  // sharing state across component

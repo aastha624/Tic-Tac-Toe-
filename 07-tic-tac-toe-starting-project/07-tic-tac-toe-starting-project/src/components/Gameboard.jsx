@@ -9,6 +9,13 @@ const intialGameboard = [
 // RENDERING MULTIDIMENTIONAL LISTING--not write code in hard code write the code in dyanamically
 
 export default function Gameboard({onselectsquare}) {
+// derived state
+    let gameboard =intialGameboard;
+    for (const turn of turns){
+const {square,player}=turn;
+const{row,col}=square;
+gameboard[row][col]=player;
+    }
 // export default function Gameboard({onselectsquare,activeplayersymbol}) {
 //     const[gameboard,setgameboard]=useState(intialGameboard);
 
@@ -30,7 +37,7 @@ export default function Gameboard({onselectsquare}) {
                 {row.map((playername, colindex) => (<li key={colindex}>
                     {/* <button> {playername}</button> */}
                     {/* <button onClick={()=>handleselectsquare(rowindex,colindex)}>{playername}</button> */}
-                    <button onClick={onselectsquare}>{playername}</button> 
+                    <button onClick={()=>onselectsquare(rowindex,colindex)}>{playername}</button> 
                 </li>
                 ))}
             </ol>
