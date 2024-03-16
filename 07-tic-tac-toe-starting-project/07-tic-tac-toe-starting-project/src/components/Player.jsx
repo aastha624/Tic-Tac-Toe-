@@ -1,8 +1,9 @@
 import { useState } from 'react';
 
-export default function Player({ initialName, symbol ,isactive}) {
+export default function Player({ initialName, symbol ,isactive, onchangename}) {
   const [ isEditing, setIsEditing ] = useState(false);
   const [playername,setplayername]=useState(initialName);
+  // above player name is upadte the input filed and every key stroke 
 
   function handlechange(event){
     console.log(event);
@@ -14,6 +15,11 @@ export default function Player({ initialName, symbol ,isactive}) {
   function handleEditClick() {
     // setIsEditing(!isEditing);--use state upadating function
     setIsEditing((editing)=>!editing);
+
+    if(isEditing){
+    onchangename(symbol,playername);
+    //this function trigger the when stop the editing
+  }
   }
 
   let editableplayername = <span className="player-name">{playername}</span>;
